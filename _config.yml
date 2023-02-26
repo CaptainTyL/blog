@@ -7,8 +7,8 @@ title: captain
 subtitle: "captain的博客"
 description: ""
 keywords:
-author: John Doe
-language: en
+author: captain
+language: zh
 timezone: ""
 
 # URL
@@ -109,3 +109,9 @@ theme: aircloud
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
+
+
+# Build settings
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+sidebar-avatar: img/avatar.png     # use absolute URL, seeing it's used in both `/` and `/about/`

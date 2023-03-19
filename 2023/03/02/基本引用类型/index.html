@@ -111,7 +111,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Date"><span class="toc-text">1.Date</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-RegExp"><span class="toc-text">2.RegExp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.原始值包装类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Boolean"><span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-text">Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#String"><span class="toc-text">String</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8D%95%E4%BE%8B%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">4.单例内置对象</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Date"><span class="toc-text">1.Date</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-RegExp"><span class="toc-text">2.RegExp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.原始值包装类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Boolean"><span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-text">Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#String"><span class="toc-text">String</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8D%95%E4%BE%8B%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">4.单例内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Global"><span class="toc-text">Global</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -222,9 +222,7 @@
 <p>​			padSatrt()和padEnd()方法会复制字符串，小于指定长度，分别在左右填充字符，直至满足指定长度。这两个方法的第一个参数是长度，第二个参数是可选的填充字符串，默认为空格。<b>第二个参数不限于一个字符 多个字符的字符串，会将其拼接并截断以匹配指定长度。如果第一个参数指定的长度小于或等于字符串长度，则返回原始字符串。</b></p>
 <p>​			字符串的迭代与解构：字符串在原型上暴露了一个@@iterator方法。表示可以迭代字符串的每个字符。可以使用for…of…进行循环，也可以通过解构操作符来进行解构。</p>
 <p><code>let message = &#39;abcde&#39;;console.log([...message])//[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;]</code></p>
-<h4 id="4-单例内置对象"><a href="#4-单例内置对象" class="headerlink" title="4.单例内置对象"></a>4.单例内置对象</h4><pre><code>#####      Global
-</code></pre>
-<p>​			Global对象是js中最特别的对象，因为代码不会显式访问它。Global对象是一种兜底对象，所针对的是不属于任何对象的属性和方法。在全局作用域中定义的变量和函数都会变成Global对象的属性。</p>
+<h4 id="4-单例内置对象"><a href="#4-单例内置对象" class="headerlink" title="4.单例内置对象"></a>4.单例内置对象</h4><h5 id="Global"><a href="#Global" class="headerlink" title="Global"></a>Global</h5><p>​        Global对象是js中最特别的对象，因为代码不会显式访问它。Global对象是一种兜底对象，所针对的是不属于任何对象的属性和方法。在全局作用域中定义的变量和函数都会变成Global对象的属性。</p>
 <p>​		URL编码方法</p>
 <p>​			encodeURI()：用于编码统一资源标识符。该方法在编码过程中不会编码属于URL组件的特殊字符，比如冒号、斜杠、问号、井号。所以该方法一般用于对整个URL进行编码。</p>
 <p>​			encodeURIComponent()：同样用于编码统一资源标识符。该方法会编码他发现的所有非标准字符。一般用于编码URL后面拼接的字符串。</p>
@@ -233,9 +231,10 @@
 <p>​		eval()：接受一个参数，是一个要执行的js字符串。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;console.log(&#x27;hi&#x27;)&quot;</span>);</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<pre><code>            1. 通过eval()执行的代码属于该调用所在上下文，被执行的代码与该上下文拥有相同的作用域链。
-            1. 通过eval()定义的任何变量和函数都不会被提升，解析代码的时候他们是被包含在一个字符串中，只是在eval()执行的时候才会创建。
-</code></pre>
+<ol>
+<li>通过eval()执行的代码属于该调用所在上下文，被执行的代码与该上下文拥有相同的作用域链。</li>
+<li>通过eval()定义的任何变量和函数都不会被提升，解析代码的时候他们是被包含在一个字符串中，只是在eval()执行的时候才会创建。</li>
+</ol>
 <p>window对象</p>
 <p>​	js没有规定直接访问Global对象的方式，但浏览器将window对象实现为Global对象的代理。因此，所有全局作用域声明的变量和函数都变成了window对象的属性。下面展示另一种获取Global对象的方式	</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable language_">global</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -114,4 +114,4 @@ deploy:
 # Build settings
 anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
-sidebar-avatar: img/avatar.png # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/user.jpeg # use absolute URL, seeing it's used in both `/` and `/about/`

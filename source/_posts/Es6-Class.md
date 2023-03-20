@@ -2,7 +2,6 @@
 title: Es6-Class
 date: 2023-02-27 22:21:12
 tags: Es6-Class
-comments: true
 ---
 
 ## class

@@ -1,7 +1,6 @@
 ---
 layout: "about"
 title: "About"
-comments: true
 ---
 
 ### 博客收藏

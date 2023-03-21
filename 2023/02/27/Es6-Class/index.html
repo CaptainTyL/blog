@@ -163,10 +163,16 @@
     <div class="post-content ">
         <h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><h4 id="1-基本含义，以及使用注意"><a href="#1-基本含义，以及使用注意" class="headerlink" title="1.基本含义，以及使用注意"></a>1.基本含义，以及使用注意</h4><h5 id="class-声明类的简单示例"><a href="#class-声明类的简单示例" class="headerlink" title="class 声明类的简单示例"></a>class 声明类的简单示例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">toString</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;(&quot;</span> + <span class="variable language_">this</span>.<span class="property">x</span> + <span class="string">&quot;,&quot;</span> + <span class="variable language_">this</span>.<span class="property">y</span> + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Point</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 
-<h5 id="class-声明类的注意点"><a href="#class-声明类的注意点" class="headerlink" title="class 声明类的注意点"></a>class 声明类的注意点</h5><p>1.类中 this 关键字代表的是实例对象 即 this&#x3D;&#x3D;&#x3D;p</p>
-<p>2.在 class 里面声明方法不需要在前面加上 function，并且方法与方法之前不需要加逗号分隔，加了会报错</p>
-<p>3.class 声明的类 类型是 function，并且类本身就是指向 constructor</p>
-<p>4.类本身是指向构造函数的，所以构造函数的 prototype 属性还是继续存在，并且实际上所有在类里面定义的方法都是定义在 prototype 上的，因此 在实例上调用方法，实际上是在调用原型上的方法</p>
+<h5 id="class-声明类的注意点"><a href="#class-声明类的注意点" class="headerlink" title="class 声明类的注意点"></a>class 声明类的注意点</h5><ol>
+<li><p>类中 this 关键字代表的是实例对象 即 this&#x3D;&#x3D;&#x3D;p</p>
+</li>
+<li><p>在 class 里面声明方法不需要在前面加上 function，并且方法与方法之前不需要加逗号分隔，加了会报错</p>
+</li>
+<li><p>class 声明的类 类型是 function，并且类本身就是指向 constructor</p>
+</li>
+<li><p>类本身是指向构造函数的，所以构造函数的 prototype 属性还是继续存在，并且实际上所有在类里面定义的方法都是定义在 prototype 上的，因此 在实例上调用方法，实际上是在调用原型上的方法</p>
+</li>
+</ol>
 <p>5.类中定义的所有方法都是不可枚举的</p>
 <h4 id="2-constructor-方法"><a href="#2-constructor-方法" class="headerlink" title="2.constructor()方法"></a>2.constructor()方法</h4><p>1.一个类一定会有一个 constructor 方法，如果没有的话，会自动默认添加一个空的 constructor 方法</p>
 <p>2.constructor 会默认返回实例对象 即 this，也可以手动设置返回一个全新的对象</p>

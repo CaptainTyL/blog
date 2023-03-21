@@ -29,6 +29,9 @@ title: "About"
 ### Vue
 
 - [官方文档](https://cn.vuejs.org/)
+- [尤雨溪手写 mini-vue](https://juejin.cn/post/6911897255087702030)
+- [全栈然叔 vue3 教程](https://juejin.cn/post/6909247394904702984#heading-1)
+- [vite+vue3 项目最佳实践](https://juejin.cn/post/6926822933721513998)
 
 ### React
 
@@ -41,6 +44,8 @@ title: "About"
 
 ### 前端工程化
 
+### 操作系统
+
 ### 前端工具网站
 
 - [查询各浏览器是否支持](https://caniuse.com/)
@@ -50,22 +55,29 @@ title: "About"
 ### 前端书籍推荐
 
 - 体系化：
+
   1. JavaScript Dom 编程艺术
   2. JavaScript 高级程序设计第四版
   3. JavaScript 权威指南第七版
   4. 在线：现代 JavaScript 教程
+
 - 扩展：
+
   1. vuejs 设计与实现
   2. JavaScript 忍者秘籍
   3. JavaScript 设计模式与开发实践
   4. 学习 JavaScript 数据结构与算法第三版 5.前端开发核心知识进阶
   5. JavaScript 迷你正则书
+
 - 反正很吊：
+
   1. 你不知道的 JavaScript
   2. JavaScript 二十年
   3. JavaScript 悟道
   4. JavaScript 语言精粹与编程实践第三版
+
 - 终极：
   标准文档
 - 总结：
+
   1. JavaScript 高级程序设计第四版 + 你不知道的 JavaScript + JavaScript 语言精粹与编程实践第三版

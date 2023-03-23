@@ -12,7 +12,7 @@
 
     <title>
         
-        Tags - undefined
+        开发问题记录 - undefined
         
     </title>
 
@@ -75,7 +75,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/blog/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -110,6 +110,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#html2Canvas-%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E2%80%94%E5%9B%BE%E7%89%87%E8%B7%A8%E5%9F%9F"><span class="toc-text">html2Canvas 生成海报—图片跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A6%81%E7%82%B9"><span class="toc-text">问题描述和要点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-text">问题解决</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -136,128 +140,44 @@
         <!-- Main Content -->
         
 
-<div id='tag_cloud' class="tags">
-    
-    <a href="#问题记录" class="tag-triangle" title="问题记录"><i class="tag-i">问题记录</i></a>
-    
-    <a href="#Es6-Class" class="tag-triangle" title="Es6-Class"><i class="tag-i">Es6-Class</i></a>
-    
-    <a href="#JavaScript" class="tag-triangle" title="JavaScript"><i class="tag-i">JavaScript</i></a>
-    
-    <a href="#Linux" class="tag-triangle" title="Linux"><i class="tag-i">Linux</i></a>
-    
-    <a href="#vue工具" class="tag-triangle" title="vue工具"><i class="tag-i">vue工具</i></a>
-    
-</div>
 
-<!-- 标签列表 -->
-
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="问题记录">
-                    <span class="tag-text">问题记录</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/blog/2023/03/23/开发问题记录/">
-            <h2 class="post-title">
-                开发问题记录
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+<div class="post-container">
+    <div class="post-title">
+        开发问题记录
     </div>
-    
-</div>
 
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Es6-Class">
-                    <span class="tag-text">Es6-Class</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/blog/2023/02/27/Es6-Class/">
-            <h2 class="post-title">
-                Es6-Class
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-03-23 17:20:13</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/blog/tags/#问题记录" title="问题记录">问题记录</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
+    <div class="post-content ">
+        <h3 id="html2Canvas-生成海报—图片跨域"><a href="#html2Canvas-生成海报—图片跨域" class="headerlink" title="html2Canvas 生成海报—图片跨域"></a>html2Canvas 生成海报—图片跨域</h3><h4 id="问题描述和要点"><a href="#问题描述和要点" class="headerlink" title="问题描述和要点"></a>问题描述和要点</h4><pre><code>- 使用html2Canvas生成海报的时候，出现图片提示跨域无法展示的问题，经过第一次百度过后，发现需要设置img标签crossOrigin属性`crossOrigin=&quot;anonymous&quot; `，接着设置html2canvas的参数`useCORS: true`。
+- 本以为很简单就可以解决的时候，发布到线上环境，才发现这个坑远不止这么简单，单单设置这两个属性和参数还无法解决图片跨域问题，在经过又一番百度，发现一种解释刚好符合我现在遇到问题的情况。
+1. 原来是因为在html中img标签能正常进行图片访问，并且通过 &lt;img&gt; 加载的图片，浏览器默认情况下会将其缓存起来。
+2. 但html2Canvas在生成海报接受dom传入的时候，代码中创建的 &lt;img&gt; 再去访问同一个图片时，浏览器就不会再发起新的请求，而是直接访问缓存的图片。但是由于 JS 中的 &lt;img&gt; 同样也是设置了 crossorigin，也就意味着它将要以 CORS 的方式请求，但缓存中的图片显然不是的，所以浏览器直接就拒绝了。当我们在浏览器network面板勾选disable cache 选项，就会不从缓存中进行图片访问 就可以正常展示图片了。
+</code></pre>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><pre><code> 因为js创建的img标签是以访问缓存的方式去展示图片的，所以在html2Canvas渲染的时候，我就想不让其通过缓存去访问，那么每一次访问图片路径地址都需要是一个不相同的地址。所以我就采用了很暴力的办法，就是在图片路径后面直接进行时间戳参数的拼接`?t=$&#123;new Date().getTime()&#125;`,这样就保证了每一次图片访问都会进行跨域请求。
+</code></pre>
 
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="JavaScript">
-                    <span class="tag-text">JavaScript</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/blog/2023/03/02/基本引用类型/">
-            <h2 class="post-title">
-                基本引用类型
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
     </div>
-    
 </div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Linux">
-                    <span class="tag-text">Linux</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/blog/2023/03/21/Linux命令记录/">
-            <h2 class="post-title">
-                Linux命令记录
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="vue工具">
-                    <span class="tag-text">vue工具</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/blog/2023/03/22/vue-quill-editor基本使用/">
-            <h2 class="post-title">
-                vue-quill-editor基本使用
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
 
     </div>
 </div>
@@ -285,7 +205,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/blog/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
@@ -294,6 +214,23 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+    <script src="https://giscus.app/client.js"
+  data-repo="CaptainTyL/blog"
+  data-repo-id="R_kgDOI_BgkA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI_BgkM4CU_7C"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
 
 
 

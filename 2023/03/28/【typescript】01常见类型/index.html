@@ -12,7 +12,7 @@
 
     <title>
         
-        Linux命令记录 - undefined
+        【typescript】01常见类型 - undefined
         
     </title>
 
@@ -111,7 +111,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">原始类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#any"><span class="toc-text">any</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#noImplicitAny"><span class="toc-text">noImplicitAny</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8A%E7%9A%84%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><span class="toc-text">变量上的类型注解</span></a></li></ol>
 </div>
     
 </div>
@@ -143,15 +143,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Linux命令记录
+        【typescript】01常见类型
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-03-21 15:15:04</span></span>
+        <span class="attr">发布于：<span>2023-03-28 16:19:30</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/blog/tags/#Linux" title="Linux">Linux</a>
+        <a class="tag" href="/blog/tags/#typescript" title="typescript">typescript</a>
         <span>/</span>
         
         
@@ -162,13 +162,20 @@
     </div>
     <div class="post-content ">
         <blockquote>
-<p>在使用 mac 进行前端开发过程中，由于没有接触过 linux 操作系统，对 mac 的操作命令很是生疏。<br>在使用过程遇到的 linux 命令在此进行记录总结</p>
+<p>typescript 中“类型”指的是在声明变量和函数的时候 对变量指定 ts 类型，对函数的入参和返回值指定 ts 类型。<br><br>在 ts 中指定变量，函数的类型，后续的赋值或者函数的返回值，都需要是符合指定类型的值才可以通过 ts 的校验。<br><br>这一次主要是学习最基本和常见的类型，这些是构建更复杂类型的基础</p>
 </blockquote>
-<ul>
-<li>查看配置网络设备<br><code>ifconfig</code></li>
-<li>查看端口占用情况<br><code>sudo losf -i tcp:端口号</code></li>
-<li>杀死指定端口<br><code>kill -9 pid</code> (pid-为查询出端口号展示出来的 pid)</li>
-</ul>
+<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p><code>string</code>,<code>number</code>,<code>boolean</code><br>js 中最常用到的三种原始数据类型，在 ts 中都有对应的类型。用法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">str</span>: string = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">strNum</span>: number = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">strBol</span>: boolean = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">arr</span>: number[] = [<span class="number">1</span>, <span class="number">2</span>]; <span class="comment">// 表示指定一个number类型的数组</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">arrNew</span>: <span class="title class_">Array</span>&lt;number&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; <span class="comment">// 第二种写法 同样指定一个number类型的数组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="any"><a href="#any" class="headerlink" title="any"></a>any</h3><p>any 是 ts 中一个特殊的类型，当你不希望一个值导致类型检查错误的时候，就可以设置为 any。</p>
+<h3 id="noImplicitAny"><a href="#noImplicitAny" class="headerlink" title="noImplicitAny"></a>noImplicitAny</h3><p>如果你没有指定一个类型，TypeScript 也不能从上下文推断出它的类型，编译器就会默认设置为 any 类型。</p>
+<p>如果你总是想避免这种情况，毕竟 TypeScript 对 any 不做类型检查，你可以开启编译项 noImplicitAny，当被隐式推断为 any 时，TypeScript 就会报错。</p>
+<h3 id="变量上的类型注解"><a href="#变量上的类型注解" class="headerlink" title="变量上的类型注解"></a>变量上的类型注解</h3><p>上面针对 ts 类型的使用示例中，在变量后面加上例<code>:number</code>，叫做类型注解。也是在进行显式指定变量类型。</p>
+<blockquote>
+<p>不过大部分时候，使用类型注解显式指定变量类型不是必须的。因为 ts 会自动推断类型。举个例子，变量的类型可以基于初始值进行推断</p>
+</blockquote>
 
         
         <br />
@@ -215,6 +222,23 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+    <script src="https://giscus.app/client.js"
+  data-repo="CaptainTyL/blog"
+  data-repo-id="R_kgDOI_BgkA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI_BgkM4CU_7C"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
 
 
 

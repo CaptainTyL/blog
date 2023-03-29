@@ -154,3 +154,35 @@ const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 // 或者
 const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
 ```
+
+> 因为类型断言会在编译的时候被移除，所以运行时并不会有类型断言的检查，即使类型断言是错误的，也不会有异常或者 null 产生。
+TypeScript 仅仅允许类型断言转换为一个更加具体或者更不具体的类型。
+双重断言：先断言为 any （或者是 unknown），然后再断言为期望的类型：
+
+```typescript
+const a=(expr as any) as T
+```
+
+### 字面量类型
+
+字面量类型指的是：将类型声明为更具体的数值或字符串。
+
+```typescript
+let x:'hello'='hello';
+// 上方代码中类型注解使用'hello'字符串代替。表示x这个变量只能被赋予hello这个字符串才可以
+
+// 字面量类型更多的是配合联合类型进行使用
+function printText(s: string, alignment: "left" | "right" | "center") {
+  // ...
+}
+// 上方函数第二个参数仅可以传入指定字面量联合类型 三个值中的一个
+```
+
+还有一种布尔字面量类型 因为只有两种布尔字面量类型， true 和 false ，类型 boolean 实际上就是联合类型 true | false 的别名。
+
+#### 字面量推断
+
+字面量推断就是：在声明一个对象的时候，对象内属性使用字面量类型进行注解，但ts会默认你会修改对象里面属性的值，所以就会自动推断对象属性值对应的类型是普通的number或者string类型。
+在使用到对象属性值的时候 因为ts推断的类型导致与定义的字面量类型对应不上的。可以使用下面两个解决办法：
+1.针对使用到的对象属性值使用类型断言 指定属性值的正确类型
+2.对整个对象使用`as const` 把整个对象转为一个类型字面量.as const 效果跟 const 类似，但是对类型系统而言，它可以确保所有的属性都被赋予一个字面量类型，而不是一个更通用的类型比如 string 或者 number 。

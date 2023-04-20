@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        迭代器 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/blog/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/blog/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 思考、生活、编程 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/img/user.jpeg" />
+        </div>
+        <div class="name">
+            <i>captain</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E4%B8%8E%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">迭代与循环的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">迭代器模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%8D%8F%E8%AE%AE-%E5%AE%9E%E7%8E%B0-Iterable-%E6%8E%A5%E5%8F%A3"><span class="toc-text">可迭代协议 (实现 Iterable 接口)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%8D%8F%E8%AE%AE"><span class="toc-text">迭代器协议</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 思考、生活、编程 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        迭代器
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-04-20 10:20:24</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="迭代与循环的区别"><a href="#迭代与循环的区别" class="headerlink" title="迭代与循环的区别"></a>迭代与循环的区别</h4><p>迭代是在一个有序集合上 按顺序反复多次执行一段程序，通常会有明确的终止条件，不保证会把所有数据都取完。<br>循环是迭代的基础，因为循环是在指定迭代次数内反复执行某段特定的代码，往往没有明确的终止条件，通常会遍历所有数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> collection = [<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;baz&quot;</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; collection.<span class="property">length</span>; ++index) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(collection[index]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 上述使用for循环来执行针对一个数组的遍历，数组作为最常见的有序集合，使用for循环 可能通过索引的递增来实现对数组元素每一项的访问。</span></span><br><span class="line"><span class="comment">// 同时 也暴露出使用循环的两个痛点：</span></span><br><span class="line"><span class="comment">// 1.在进行循环之前需要知道如何使用数据结构。例如上述循环的数组，是先访问数组引用然后通过一直递增的index进行访问对应位置元素的，</span></span><br><span class="line"><span class="comment">// 2.遍历顺序并不是数据结构固有的。上述的数组是一个有序集合，但js中还有一个数据结构并不是都是有序的。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h4><p>迭代器模式是指 在 js 中可以把某些结构称为<b>可迭代对象</b>（因为它们实现了正式的 Iterable 接口），而且可以通过迭代器 Iterator 进行消费。</p>
+<p>可迭代对象：是一种抽象的说法。通常可以把数组和集合这样的集合类型的对象称为可迭代对象。通常这样的类型<b>包含的元素都是有限的，并且都具有无歧义的遍历顺序,但是，可迭代对象不一定是集合对象，也可以是仅仅具有类似数组行为的其他数据结构。</b></p>
+<p>迭代器：迭代器是按需创建的一次性对象，每个迭代器都是关联一个可迭代对象，而迭代器会暴露其关联的可迭代对象的 api。所以迭代器无须了解与其关联的可迭代对象本身的结构，只需要知道如何取得连续的值。</p>
+<h4 id="可迭代协议-实现-Iterable-接口"><a href="#可迭代协议-实现-Iterable-接口" class="headerlink" title="可迭代协议 (实现 Iterable 接口)"></a>可迭代协议 (实现 Iterable 接口)</h4><p>可迭代协议要求同时具备两种能力：支持迭代的自我识别能力和能够创建实现<b>迭代器</b>（也是 Iterator 接口的对象）的能力。<br>在 js 中，根据上述可知要是一个结构想具备可迭代协议，也就是说想成为一个可迭代对象的话，就必须暴露一个属性作为<b>默认迭代器</b>，而且这个属性必须要使用特殊的<code>Symbol.iterator</code>作为键，这个默认迭代器的属性必须引用一个迭代器的工厂函数，调用这个迭代器的工厂函数必须返回一个新的迭代器。<br>目前 js 中内置类型 实现了 Iterable 接口的如下：</p>
+<ul>
+<li>字符串</li>
+<li>数组</li>
+<li>映射（Map）</li>
+<li>集合（Set）</li>
+<li>arguments 对象</li>
+<li>NodeList 等 DOM 集合类型</li>
+</ul>
+<p>检查是否存在默认迭代器属性可以暴露这个工厂函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="comment">// 这两种类型没有实现迭代器工厂函数</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>];</span><br><span class="line"><span class="comment">// 这些类型都实现了迭代器工厂函数</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]); <span class="comment">// f values() &#123; [native code] &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]); <span class="comment">// f values() &#123; [native code] &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个工厂函数会生成一个迭代器</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]()); <span class="comment">// StringIterator &#123;&#125;</span></span><br><span class="line"><span class="comment">// 实际在写的时候，不需要显式调用这个工厂函数来生成迭代器。</span></span><br></pre></td></tr></table></figure>
+
+<p>实现可迭代协议的所有类型都会自动兼容接收可迭代对象的任何语言特性。在 js 中 可迭代对象的语言特性包括：</p>
+<ul>
+<li>for…of 循环</li>
+<li>数组解构</li>
+<li>扩展操作符</li>
+<li>Array.from()</li>
+<li>创建集合</li>
+<li>创建映射</li>
+<li>promise.all()接收由 promise 组成的可迭代对象</li>
+<li>promise.race()接收由 promise 组成的可迭代对象</li>
+<li>yield<sup>*</sup> 操作符，在生成器中使用</li>
+</ul>
+<blockquote>
+<p>这些原生语言结构会在后台调用提供的可迭代对象的这个工厂函数，从而创建一个迭代器<br>如果对象原型链上的父类实现了 Iterable 接口，那这个对象也就实现了这个接口</p>
+</blockquote>
+<h4 id="迭代器协议"><a href="#迭代器协议" class="headerlink" title="迭代器协议"></a>迭代器协议</h4>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+  <ul class="list-inline text-center">
+         
+  </ul>
+  
+  <p>
+    <span id="busuanzi_container_site_pv">
+      <span id="busuanzi_value_site_pv"></span>PV
+    </span>
+    <span id="busuanzi_container_site_uv">
+      <span id="busuanzi_value_site_uv"></span>UV
+    </span>
+    Created By <a target="_blank" rel="noopener" href="https://github.com/CaptainTyL">Captain</a>
+  </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/blog/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://giscus.app/client.js"
+  data-repo="CaptainTyL/blog"
+  data-repo-id="R_kgDOI_BgkA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI_BgkM4CU_7C"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        生成器 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/blog/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/blog/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 思考、生活、编程 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/img/user.jpeg" />
+        </div>
+        <div class="name">
+            <i>captain</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E5%9F%BA%E7%A1%80"><span class="toc-text">生成器基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yield%E4%B8%AD%E6%96%AD%E6%89%A7%E8%A1%8C"><span class="toc-text">yield中断执行</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 思考、生活、编程 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        生成器
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-05 23:12:20</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/blog/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>生成器是一个拥有在函数块内暂停和恢复代码执行能力的结构。</p>
+<h4 id="生成器基础"><a href="#生成器基础" class="headerlink" title="生成器基础"></a>生成器基础</h4><p>1.生成器形式是一个函数，在函数名称前面加一个星号(*)表示他是一个生成器。只要可以定义函数的地方，就可以定义生成器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明一个生成器函数</span></span><br><span class="line"><span class="keyword">function</span> *<span class="title function_">generatorFn</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成器函数表达式</span></span><br><span class="line"><span class="keyword">let</span> generatorFn=<span class="keyword">function</span> *()&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 标识生成器函数的星号不受两侧的空格影响</span></span><br><span class="line"><span class="comment">//等价的生成器函数</span></span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">generatorFn</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"><span class="keyword">function</span> *<span class="title function_">generatorFn</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"><span class="keyword">function</span> * <span class="title function_">generatorFn</span>(<span class="params"></span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>箭头函数不能用来定义生成器函数</p>
+</blockquote>
+<p>2.调用生成器函数会产生一个<b>生成器对象</b>。生成器对象一开始处于暂停执行的状态。</p>
+<p>3.生成器对象实现了<code>Iterator</code>接口，拥有<code>next()</code>方法。调用该方法会让生成器开始或者恢复执行。</p>
+<p>4.<code>next()</code>方法的返回值类似于迭代器，返回<code>&#123;done:true/false,value&#125;</code>，如果函数体为空，调用<code>next()</code>后函数不会暂停，会返回<code>done:true</code>,如何该函数有返回值 则value的属性值就是该返回值，如果没有返回值，value属性值为<code>undefined</code>。</p>
+<p>5.生成器函数只会在初次调用<code>next()</code>方法后开始执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">generatorFn</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foobar&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> generatorObject=<span class="title function_">generatorFn</span>();<span class="comment">// 初次调用生成器函数并不会执行，没有打印控制台日志</span></span><br><span class="line"></span><br><span class="line">generatorObject.<span class="title function_">next</span>();<span class="comment">//foobar</span></span><br></pre></td></tr></table></figure>
+
+<p>6.生成器对象实现了Iterable接口，他们的默认迭代器是自引用的。</p>
+<h4 id="yield中断执行"><a href="#yield中断执行" class="headerlink" title="yield中断执行"></a>yield中断执行</h4>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="footer">
+  <ul class="list-inline text-center">
+         
+  </ul>
+  
+  <p>
+    <span id="busuanzi_container_site_pv">
+      <span id="busuanzi_value_site_pv"></span>PV
+    </span>
+    <span id="busuanzi_container_site_uv">
+      <span id="busuanzi_value_site_uv"></span>UV
+    </span>
+    Created By <a target="_blank" rel="noopener" href="https://github.com/CaptainTyL">Captain</a>
+  </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/blog/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://giscus.app/client.js"
+  data-repo="CaptainTyL/blog"
+  data-repo-id="R_kgDOI_BgkA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI_BgkM4CU_7C"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+
+
+</html>
